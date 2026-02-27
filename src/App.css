@@ -5,12 +5,13 @@
   text-align: center;
 }
 
-/* Home page */
+/* Italian flag button colours: green, white, red — text black */
 .home-page h1 {
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 .home-page .welcome {
-  color: #888;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 2rem;
 }
 .home-nav {
@@ -24,22 +25,28 @@
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  color: inherit;
-  transition: border-color 0.2s, background-color 0.2s;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s, filter 0.2s;
 }
 .home-nav .nav-button:hover {
-  border-color: #646cff;
-  background-color: #252525;
+  opacity: 0.92;
+  filter: brightness(1.08);
 }
-.home-nav .nav-button.study { border-left: 4px solid #4ade80; }
-.home-nav .nav-button.quiz { border-left: 4px solid #60a5fa; }
-.home-nav .nav-button.stats { border-left: 4px solid #a78bfa; }
+.home-nav .nav-button.study {
+  background-color: #008C45; /* Italian green */
+}
+.home-nav .nav-button.quiz {
+  background-color: #fff; /* Italian white */
+}
+.home-nav .nav-button.stats {
+  background-color: #CE2B37; /* Italian red */
+}
 
-/* Category selection */
+/* Category selection — Italian flag colours, black text */
 .category-selection h1 {
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 .category-list {
   list-style: none;
@@ -53,23 +60,34 @@
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  color: inherit;
+  font-weight: 600;
+  color: #000;
   text-decoration: none;
   min-width: 140px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s, filter 0.2s;
 }
+.category-list li:nth-child(1) .category-link { background-color: #008C45; }
+.category-list li:nth-child(2) .category-link { background-color: #fff; }
+.category-list li:nth-child(3) .category-link { background-color: #CE2B37; }
 .category-link:hover {
-  border-color: #646cff;
+  opacity: 0.92;
+  filter: brightness(1.08);
 }
 .back-link {
   display: inline-block;
   margin-top: 1.5rem;
-  color: #888;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Stats page */
+.stats-page h1 {
+  color: #fff;
+}
 .stats-page p {
-  color: #888;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
+}
+.stats-page a {
+  color: rgba(255, 255, 255, 0.85);
 }
