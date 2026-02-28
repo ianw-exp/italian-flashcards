@@ -1,0 +1,51 @@
+---
+description: Key parts of the code should have comments explaining in simple language what the code does
+alwaysApply: true
+---
+
+# Comments
+
+## When to Comment
+
+Add short, plain-language comments for:
+
+- **Public APIs** – functions, classes, or exports that other code uses
+- **Non-obvious logic** – anything that isn’t clear from the code alone
+- **Business rules** – why a check or branch exists (e.g. “Only allow retry if under rate limit”)
+- **Complex logic** – algorithms, formulas, or multi-step flows
+
+## How to Comment
+
+- Use **simple language**: say what the code does and, when helpful, why.
+- Prefer **brief** comments; avoid restating the code line-by-line.
+- Put comments **above** the relevant block or line, or use inline comments for single lines where it fits.
+
+## Examples
+
+```python
+# ❌ BAD – no comment on non-obvious logic
+if (timestamp - last_request) < 60:
+    raise RateLimitError()
+
+# ✅ GOOD – explains the rule in simple language
+# Only allow one request per minute to avoid hitting the API limit
+if (timestamp - last_request) < 60:
+    raise RateLimitError()
+```
+
+```javascript
+// ❌ BAD – comment just repeats the code
+// Loop through items
+items.forEach((item) => process(item));
+
+// ✅ GOOD – explains purpose in simple language
+// Send each item to the queue so workers can process them in parallel
+items.forEach((item) => process(item));
+```
+
+```python
+# ✅ GOOD – comment on public API
+def calculate_due_date(created_at: datetime, terms_days: int) -> datetime:
+    """Return the payment due date from creation time and term length in days."""
+    return created_at + timedelta(days=terms_days)
+```

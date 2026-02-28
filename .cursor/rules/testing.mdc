@@ -1,0 +1,20 @@
+---
+description: Run tests after code changes and offer to add tests for new functionality
+alwaysApply: true
+---
+
+# Testing
+
+## After Making Code Changes
+
+1. **Run all tests**  
+   Once you are done making changes to the codebase, run the full test suite and ensure all tests pass. Fix any failures before considering the task complete.
+
+2. **Offer to add tests for new functionality**  
+   After finishing changes, proactively ask the user: *"Should I also write new tests to cover the new functionality?"* Do this when you’ve added or changed behavior that could benefit from tests, rather than waiting for the user to ask.
+
+## Examples
+
+- After adding a new API endpoint → run tests, then ask if you should add tests for that endpoint.
+- After refactoring a module → run tests to confirm nothing broke, then ask if you should add or update tests for the refactored behavior.
+- After fixing a bug → run tests, then ask if you should add a regression test for that bug.
