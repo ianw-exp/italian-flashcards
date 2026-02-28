@@ -91,3 +91,109 @@
 .stats-page a {
   color: rgba(255, 255, 255, 0.85);
 }
+
+/* Study page */
+.study-page h1 {
+  color: #fff;
+}
+.study-page p {
+  color: rgba(255, 255, 255, 0.85);
+}
+.study-progress {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.study-complete-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+/* Flashcard component — flip and Italian flag buttons */
+.flashcard-container {
+  perspective: 1000px;
+  margin: 1.5rem auto;
+  max-width: 320px;
+}
+.flashcard {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.flashcard-front {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+.flashcard-back {
+  background: #252525;
+  border: 1px solid #444;
+  transform: rotateY(180deg);
+}
+.flashcard-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+.flashcard-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+}
+.flashcard-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flashcard-btn {
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.flashcard-btn.right {
+  background-color: #008C45;
+}
+.flashcard-btn.wrong {
+  background-color: #CE2B37;
+}
+.flashcard-btn:hover {
+  opacity: 0.92;
+  filter: brightness(1.08);
+}

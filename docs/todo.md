@@ -9,7 +9,7 @@
   ✅ *Acceptance Criteria:* Directory structure exists with logical separation of components, static data, and page views.
 
 - [x] Create static JSON or TS file with flashcards grouped by category (animals, food, verbs)  
-  ✅ *Acceptance Criteria:* File exports at least 3 cards per category with correct format: `Italian`, `english`, `category`, and `quiz`.
+  ✅ *Acceptance Criteria:* File exports at least 3 cards per category with correct format: `italian`, `english`, `category`, and `quiz`.
 
 - [x] Create Home Page with navigation buttons:
   - [x] Study Mode  
@@ -32,13 +32,13 @@
   - [x] Flip interaction (click-to-flip)  
     ✅ *Acceptance Criteria:* Card responds to click or tap and visually flips to show other side.
 
-- [ ] Display "✅ Right" and "❌ Wrong" buttons after flipping  
+- [x] Display "✅ Right" and "❌ Wrong" buttons after flipping  
   ✅ *Acceptance Criteria:* Buttons appear only after flipping and let the user mark the answer as correct or incorrect. After clicking a button, the next card is displayed.
 
-- [ ] Track incorrect answers in React state  
+- [x] Track incorrect answers in React state  
   ✅ *Acceptance Criteria:* Cards marked as "Wrong" are stored in component-level or app-level state for later use.
 
-- [ ] Allow user to move through all cards in the selected category  
+- [x] Allow user to move through all cards in the selected category  
   ✅ *Acceptance Criteria:* User can navigate through the flashcards one by one until all cards are reviewed.
 
 ## 🟡 Phase 3: Redo Mode (Repeat Wrong Cards)
