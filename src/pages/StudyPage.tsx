@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Flashcard } from "../components/Flashcard";
+import { useWrongCards } from "../context/WrongCardsContext";
 import {
   getCardsByCategory,
   type Flashcard as FlashcardType,
@@ -15,9 +16,20 @@ function isValidCategory(param: string | undefined): param is Category {
 
 export function StudyPage() {
   const { category } = useParams<{ category: string }>();
-  // Track any cards the user marks incorrect for the end-of-session summary.
+  const { setWrongCardsFromSession, resetWrongCards } = useWrongCards();
+  // Track any cards the user marks incorrect for the end-of-session summary and redo.
   const [wrongCards, setWrongCards] = useState<FlashcardType[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Persist wrong cards to context when session ends so redo mode can use them.
+  useEffect(() => {
+    if (!category || !CATEGORIES.includes(category as Category) || wrongCards.length === 0)
+      return;
+    const cardsForSession = getCardsByCategory(category as Category);
+    if (currentIndex >= cardsForSession.length) {
+      setWrongCardsFromSession(wrongCards);
+    }
+  }, [category, wrongCards, currentIndex, setWrongCardsFromSession]);
 
   if (!isValidCategory(category)) {
     return (
@@ -64,6 +76,20 @@ export function StudyPage() {
           )}
         </p>
         <div className="study-complete-actions">
+          {wrongCards.length > 0 && (
+            <>
+              <Link to="/study/redo" className="nav-button study">
+                Redo wrong cards
+              </Link>
+              <button
+                type="button"
+                className="back-link"
+                onClick={resetWrongCards}
+              >
+                Reset wrong list
+              </button>
+            </>
+          )}
           <Link to="/study/category" className="nav-button study">
             Study another category
           </Link>

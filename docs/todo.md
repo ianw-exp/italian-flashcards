@@ -43,13 +43,13 @@
 
 ## 🟡 Phase 3: Redo Mode (Repeat Wrong Cards)
 
-- [ ] Add "Redo Wrong Cards" button on Home or Study end screen  
+- [x] Add "Redo Wrong Cards" button on Home or Study end screen  
   ✅ *Acceptance Criteria:* Button appears after study session ends (if there were wrong cards); clicking it starts a redo session.
 
-- [ ] Show only previously failed cards in redo session  
+- [x] Show only previously failed cards in redo session  
   ✅ *Acceptance Criteria:* Flashcard component is reused but only displays cards marked wrong in the previous round.
 
-- [ ] Allow resetting of the "wrong" list  
+- [x] Allow resetting of the "wrong" list  
   ✅ *Acceptance Criteria:* User can clear the list of wrong cards from a button or settings section.
 
 ## 🟡 Phase 4: Quiz Mode
