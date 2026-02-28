@@ -37,6 +37,8 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run build`| Production build         |
 | `npm run preview` | Preview production build |
 | `npm run lint` | Run ESLint               |
+| `npm run test:e2e` | Run Playwright e2e tests |
+| `npm run test:e2e:ui` | Run e2e tests with UI mode |
 
 ## Project structure
 
