@@ -3,6 +3,7 @@ import { CATEGORIES } from "../data/flashcards";
 
 export function CategorySelectionPage() {
   const { pathname } = useLocation();
+  // Use the current route to decide whether we're in study or quiz flow.
   const isStudy = pathname.startsWith("/study");
   const basePath = isStudy ? "/study" : "/quiz";
 
@@ -13,6 +14,7 @@ export function CategorySelectionPage() {
       <ul className="category-list">
         {CATEGORIES.map((cat) => (
           <li key={cat}>
+            {/* Link into the correct flow (study or quiz) for this category */}
             <Link to={`${basePath}/${cat}`} className="category-link">
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
             </Link>

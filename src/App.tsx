@@ -9,6 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Entry points for study/quiz flows */}
         <Route path="/" element={<HomePage />} />
         <Route path="/study/category" element={<CategorySelectionPage />} />
         <Route path="/quiz/category" element={<CategorySelectionPage />} />

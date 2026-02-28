@@ -11,15 +11,18 @@ export function Flashcard({ card, onRight, onWrong }: FlashcardProps) {
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = () => {
+    // Only flip from front to back; prevent accidental re-flip.
     if (!flipped) setFlipped(true);
   };
 
   const handleRight = (e: React.MouseEvent) => {
+    // Keep the click from bubbling to the card and flipping it again.
     e.stopPropagation();
     onRight();
   };
 
   const handleWrong = (e: React.MouseEvent) => {
+    // Keep the click from bubbling to the card and flipping it again.
     e.stopPropagation();
     onWrong();
   };
@@ -40,6 +43,7 @@ export function Flashcard({ card, onRight, onWrong }: FlashcardProps) {
           <div className="flashcard-back">
             <span className="flashcard-text">{card.english}</span>
             {flipped && (
+              // Actions live inside the back of the card once it's flipped.
               <div className="flashcard-actions" onClick={(e) => e.stopPropagation()}>
                 <button
                   type="button"

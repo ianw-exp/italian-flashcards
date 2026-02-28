@@ -9,11 +9,13 @@ import {
 } from "../data/flashcards";
 
 function isValidCategory(param: string | undefined): param is Category {
+  // Guard against unknown categories so we can show a friendly message.
   return param !== undefined && CATEGORIES.includes(param as Category);
 }
 
 export function StudyPage() {
   const { category } = useParams<{ category: string }>();
+  // Track any cards the user marks incorrect for the end-of-session summary.
   const [wrongCards, setWrongCards] = useState<FlashcardType[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -28,6 +30,7 @@ export function StudyPage() {
 
   const cards = getCardsByCategory(category);
   const currentCard = cards[currentIndex];
+  // Session ends when we've advanced past the last card.
   const isComplete = cards.length === 0 || currentIndex >= cards.length;
 
   const handleRight = () => {
