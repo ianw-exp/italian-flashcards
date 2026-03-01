@@ -74,6 +74,120 @@
   opacity: 0.92;
   filter: brightness(1.08);
 }
+/* Food (white) link: keep text black on hover so it stays readable on white background */
+.category-list li:nth-child(2) .category-link,
+.category-list li:nth-child(2) .category-link:hover {
+  color: #000;
+}
+.category-list li:nth-child(2) .category-link:hover {
+  background-color: #e8e8e8;
+  filter: none;
+}
+
+/* Quiz selection: quiz type + category */
+.quiz-selection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.quiz-type-group {
+  padding: 1rem;
+}
+.quiz-type-heading {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 480px) {
+  .quiz-selection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Quiz page (multiple choice + fill-in-blank) */
+.quiz-page .quiz-prompt {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 1rem 0;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+  max-width: 320px;
+}
+.quiz-option {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #2a2a2a;
+  border: 2px solid #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.quiz-option:hover:not(:disabled) {
+  border-color: #666;
+  background: #333;
+}
+.quiz-option:disabled {
+  cursor: default;
+}
+.quiz-option.correct {
+  border-color: #008C45;
+  background: rgba(0, 140, 69, 0.25);
+}
+.quiz-option.wrong {
+  border-color: #CE2B37;
+  background: rgba(206, 43, 55, 0.25);
+}
+.quiz-feedback {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+.quiz-feedback.correct {
+  color: #008C45;
+}
+.quiz-feedback.wrong {
+  color: #CE2B37;
+}
+.quiz-fill-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 320px;
+  align-items: stretch;
+}
+.quiz-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #444;
+  background: #2a2a2a;
+  color: #fff;
+}
+.quiz-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .back-link {
   display: inline-block;
   margin-top: 1.5rem;

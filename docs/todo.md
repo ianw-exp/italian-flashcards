@@ -54,25 +54,25 @@
 
 ## 🟡 Phase 4: Quiz Mode
 
-- [ ] Build `QuizSelectionPage` to pick a category and quiz type  
+- [x] Build `QuizSelectionPage` to pick a category and quiz type  
   ✅ *Acceptance Criteria:* Page shows quiz types (Multiple Choice, Fill in the Blank) and categories to start the quiz.
 
-- [ ] Implement Multiple Choice Quiz:
-  - [ ] Display Italian word  
+- [x] Implement Multiple Choice Quiz:
+  - [x] Display Italian word  
     ✅ *Acceptance Criteria:* Italian word is clearly shown at the top.
-  - [ ] Show 4 English options (1 correct, 3 distractors from static data)  
+  - [x] Show 4 English options (1 correct, 3 distractors from static data)  
     ✅ *Acceptance Criteria:* Exactly 4 options are shown; one matches the correct answer from the flashcard data.
-  - [ ] Feedback on correct/incorrect selection  
+  - [x] Feedback on correct/incorrect selection  
     ✅ *Acceptance Criteria:* User is informed immediately whether their choice was right or wrong.
 
-- [ ] Implement Fill-in-the-Blank Quiz:
-  - [ ] Display Italian word  
+- [x] Implement Fill-in-the-Blank Quiz:
+  - [x] Display Italian word  
     ✅ *Acceptance Criteria:* Italian word is visible as the prompt.
-  - [ ] Input field for English word  
+  - [x] Input field for English word  
     ✅ *Acceptance Criteria:* User can type the English translation in a text box.
-  - [ ] Case-insensitive comparison  
+  - [x] Case-insensitive comparison  
     ✅ *Acceptance Criteria:* Input is considered correct regardless of letter casing.
-  - [ ] Show if answer is correct or not  
+  - [x] Show if answer is correct or not  
     ✅ *Acceptance Criteria:* App gives clear feedback (e.g., "Correct!" or "Wrong — the answer was: ...").
 
 ## 🔴 Phase 5: Statistics Tracking
