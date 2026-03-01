@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useStats } from "../context/StatsContext";
 import {
   getCardsByCategory,
   type Flashcard as FlashcardType,
@@ -30,6 +31,7 @@ function shuffle<T>(arr: T[]): T[] {
 
 export function QuizPage() {
   const { category, quizType } = useParams<{ category: string; quizType: string }>();
+  const { recordAnswer } = useStats();
   const [index, setIndex] = useState(0);
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -58,6 +60,7 @@ export function QuizPage() {
     if (feedback !== null) return;
     setSelectedOption(selected);
     const correct = selected === currentCard.english;
+    recordAnswer(category as Category, correct); // Update stats for Statistics page
     setFeedback(correct ? "correct" : "wrong");
   };
 
@@ -66,6 +69,7 @@ export function QuizPage() {
     if (feedback !== null) return;
     const normalized = fillInAnswer.trim().toLowerCase();
     const correct = normalized === currentCard.english.toLowerCase();
+    recordAnswer(category as Category, correct); // Update stats for Statistics page
     setFeedback(correct ? "correct" : "wrong");
   };
 

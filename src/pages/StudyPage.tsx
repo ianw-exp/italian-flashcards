@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Flashcard } from "../components/Flashcard";
+import { useStats } from "../context/StatsContext";
 import { useWrongCards } from "../context/WrongCardsContext";
 import {
   getCardsByCategory,
@@ -17,6 +18,7 @@ function isValidCategory(param: string | undefined): param is Category {
 export function StudyPage() {
   const { category } = useParams<{ category: string }>();
   const { setWrongCardsFromSession, resetWrongCards } = useWrongCards();
+  const { recordAnswer } = useStats();
   // Track any cards the user marks incorrect for the end-of-session summary and redo.
   const [wrongCards, setWrongCards] = useState<FlashcardType[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,12 +48,14 @@ export function StudyPage() {
   const isComplete = cards.length === 0 || currentIndex >= cards.length;
 
   const handleRight = () => {
+    recordAnswer(category, true); // Update stats for Statistics page
     setCurrentIndex((i) => i + 1);
   };
 
   const handleWrong = () => {
     if (currentCard) {
       setWrongCards((prev) => [...prev, currentCard]);
+      recordAnswer(category, false); // Update stats for Statistics page
     }
     setCurrentIndex((i) => i + 1);
   };

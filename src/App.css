@@ -207,12 +207,35 @@
 .stats-page h1 {
   color: #fff;
 }
+.stats-page h2 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+.stats-page h2:first-of-type {
+  margin-top: 0;
+}
 .stats-page p {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
 }
 .stats-page a {
   color: rgba(255, 255, 255, 0.85);
+}
+.stats-summary,
+.stats-by-category {
+  text-align: left;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.stats-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.stats-category-item {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.75rem;
 }
 
 /* Study page */

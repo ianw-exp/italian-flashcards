@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Flashcard } from "../components/Flashcard";
+import { useStats } from "../context/StatsContext";
 import { useWrongCards } from "../context/WrongCardsContext";
 import type { Flashcard as FlashcardType } from "../data/flashcards";
 
@@ -10,6 +11,7 @@ import type { Flashcard as FlashcardType } from "../data/flashcards";
  */
 export function RedoStudyPage() {
   const { wrongCards, setWrongCardsFromSession } = useWrongCards();
+  const { recordAnswer } = useStats();
   const [sessionCards, setSessionCards] = useState<FlashcardType[]>([]);
   const [wrongThisRound, setWrongThisRound] = useState<FlashcardType[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,12 +34,14 @@ export function RedoStudyPage() {
   const isComplete = cards.length === 0 || currentIndex >= cards.length;
 
   const handleRight = () => {
+    if (currentCard) recordAnswer(currentCard.category, true); // Update stats for Statistics page
     setCurrentIndex((i) => i + 1);
   };
 
   const handleWrong = () => {
     if (currentCard) {
       setWrongThisRound((prev) => [...prev, currentCard]);
+      recordAnswer(currentCard.category, false); // Update stats for Statistics page
     }
     setCurrentIndex((i) => i + 1);
   };

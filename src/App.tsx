@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { StatsProvider } from "./context/StatsContext";
 import { WrongCardsProvider } from "./context/WrongCardsContext";
 import { HomePage } from "./pages/HomePage";
 import { CategorySelectionPage } from "./pages/CategorySelectionPage";
@@ -9,10 +10,12 @@ import { StatsPage } from "./pages/StatsPage";
 import { StudyPage } from "./pages/StudyPage";
 import "./App.css";
 
+/** Root app: providers for stats (localStorage) and wrong-cards (redo), plus routing. */
 function App() {
   return (
-    <WrongCardsProvider>
-      <BrowserRouter>
+    <StatsProvider>
+      <WrongCardsProvider>
+        <BrowserRouter>
         <Routes>
           {/* Entry points for study/quiz flows */}
           <Route path="/" element={<HomePage />} />
@@ -26,6 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </WrongCardsProvider>
+    </StatsProvider>
   );
 }
 

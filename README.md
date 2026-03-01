@@ -8,7 +8,7 @@ A front-end web app for learning Italian vocabulary. Study with flashcards, take
 - **Redo mode** — Study only the cards you marked wrong in the last session; reset the list anytime.
 - **Quiz mode** — Multiple choice (4 options) or fill-in-the-blank (type the answer, case-insensitive).
 - **Categories** — Cards are grouped into **Animals**, **Food**, and **Verbs**.
-- **Statistics** — View how many cards you’ve studied and your accuracy (planned).
+- **Statistics** — View how many cards you’ve studied and your accuracy (persisted in localStorage).
 
 Built with **Vite**, **React**, and **TypeScript**. Data is static (no server or database).
 
@@ -28,7 +28,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open the URL shown in the terminal (Vite typically uses port 5173, or the next free port if that’s in use).
 
 ### Other commands
 
@@ -45,10 +45,11 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ```
 src/
-├── components/   # Reusable UI components
-├── data/        # Static flashcard data (e.g. flashcards.ts)
-├── pages/       # Route-level views (Home, CategorySelection, Stats, etc.)
-├── App.tsx      # Root app and routing
+├── components/   # Reusable UI (e.g. Flashcard)
+├── context/     # React context (WrongCards for redo, Stats for statistics + localStorage)
+├── data/        # Static flashcard data (flashcards.ts)
+├── pages/       # Route-level views (Home, Study, Redo, Quiz, QuizSelection, Stats, etc.)
+├── App.tsx      # Root app, providers, and routing
 └── main.tsx     # Entry point
 ```
 
